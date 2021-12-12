@@ -1,0 +1,9 @@
+.button {
+  width: fit-content;
+  margin: 2rem auto;
+}
+
+.button > button {
+  font-size: 2rem;
+  padding: 2rem;
+}
