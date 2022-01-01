@@ -1,4 +1,7 @@
 import "./Navbar.css";
+import { IconContext } from "react-icons";
+import { FiSettings, FiArrowUpCircle } from "react-icons/fi";
+import { MdOutlineLocalGroceryStore } from "react-icons/md";
 
 // const totalObject = useContext(TotalContext);
 // import { useContext } from "react";
@@ -16,10 +19,25 @@ const Navbar = (props) => {
         </div>
 
         {/* menus */}
-        <div>
-          <button>Upgrades</button>
-          <button>Store</button>
-          <button>Settings</button>
+        <div className="buttons">
+          <button>
+            Upgrades{" "}
+            <IconContext.Provider value={{ className: "react-icons" }}>
+              <FiArrowUpCircle />
+            </IconContext.Provider>
+          </button>
+          <button>
+            Store{" "}
+            <IconContext.Provider value={{ className: "react-icons" }}>
+              <MdOutlineLocalGroceryStore />
+            </IconContext.Provider>
+          </button>
+          <button>
+            Settings{" "}
+            <IconContext.Provider value={{ className: "react-icons" }}>
+              <FiSettings />
+            </IconContext.Provider>
+          </button>
         </div>
       </nav>
     </>

@@ -11,4 +11,10 @@
   background-size: 250px;
   background-repeat: repeat;
   --green-color: #4db828;
+  --green-bg-color: #d1ffc1;
+}
+
+.react-icons {
+  vertical-align: middle;
+  padding-bottom: 0.2rem;
 }
