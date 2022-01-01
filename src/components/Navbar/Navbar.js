@@ -1,17 +1,28 @@
-import { useContext } from "react";
-import TotalContext from "../../totalContext";
 import "./Navbar.css";
-import { currencyFormatter } from "../../businessLogic";
+
+// const totalObject = useContext(TotalContext);
+// import { useContext } from "react";
+// import TotalContext from "../../totalContext";
+// import { currencyFormatter } from "../../businessLogic";
+// <div className="total">{currencyFormatter.format(totalObject.total)}</div>
 
 const Navbar = (props) => {
-  const totalObject = useContext(TotalContext);
-
   return (
-    <nav className="nav">
-      <h1 className="verticalCenter">CA Clicker</h1>
-      <div className="total">{currencyFormatter.format(totalObject.total)}</div>
-      <h2 className="verticalCenter">Created by Curtis Babin</h2>
-    </nav>
+    <>
+      <nav className="nav">
+        <div className="logo-container">
+          <h1 className="logo">CA Clicker</h1>
+          <h6 className="created-by">Created by Curtis Babin</h6>
+        </div>
+
+        {/* menus */}
+        <div>
+          <button>Upgrades</button>
+          <button>Store</button>
+          <button>Settings</button>
+        </div>
+      </nav>
+    </>
   );
 };
 

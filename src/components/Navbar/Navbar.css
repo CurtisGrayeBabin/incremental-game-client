@@ -1,11 +1,36 @@
 .nav {
-  font-family: "Nunito", sans-serif;
+  font-family: "Poppins", sans-serif;
   width: 100%;
   height: 100%;
-  background-color: lightblue;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.california {
+  width: 300px;
+  height: 300px;
+}
+
+.logo-container {
+  position: relative;
+  left: 2rem;
+}
+
+.logo {
+  font-family: "Poppins";
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--green-color);
+}
+
+.created-by {
+  font-family: "Poppins";
+  font-size: 0.6rem;
+  font-weight: normal;
+  text-align: right;
+  position: relative;
+  bottom: 0.8rem;
 }
 
 .verticalCenter {
