@@ -1,17 +1,44 @@
-import { useContext } from "react";
-import TotalContext from "../../totalContext";
 import "./Navbar.css";
-import { currencyFormatter } from "../../businessLogic";
+import { IconContext } from "react-icons";
+import { FiSettings, FiArrowUpCircle } from "react-icons/fi";
+import { MdOutlineLocalGroceryStore } from "react-icons/md";
+import { default as logo } from "../../Assets/BlankCaliforniaOutline.svg";
 
 const Navbar = (props) => {
-  const totalObject = useContext(TotalContext);
-
   return (
-    <nav className="nav">
-      <h1 className="verticalCenter">CA Clicker</h1>
-      <div className="total">{currencyFormatter.format(totalObject.total)}</div>
-      <h2 className="verticalCenter">Created by Curtis Babin</h2>
-    </nav>
+    <>
+      <nav className="nav">
+        <div className="logo-container">
+          <h1 className="logo">CA Clicker</h1>
+          <h6 className="created-by">Created by Curtis Babin</h6>
+        </div>
+
+        {/* menus */}
+        <div className="buttons">
+          <button>
+            Upgrades{" "}
+            <IconContext.Provider value={{ className: "react-icons" }}>
+              <FiArrowUpCircle />
+            </IconContext.Provider>
+          </button>
+          <button>
+            Store{" "}
+            <IconContext.Provider value={{ className: "react-icons" }}>
+              <MdOutlineLocalGroceryStore />
+            </IconContext.Provider>
+          </button>
+          <button>
+            Settings{" "}
+            <IconContext.Provider value={{ className: "react-icons" }}>
+              <FiSettings />
+            </IconContext.Provider>
+          </button>
+        </div>
+      </nav>
+      <div className="california">
+        <img src={logo} alt={"Outline of California"} />
+      </div>
+    </>
   );
 };
 

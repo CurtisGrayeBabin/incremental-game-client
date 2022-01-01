@@ -5,6 +5,7 @@ import { TotalProvider } from "./totalContext";
 import Navbar from "./components/Navbar/Navbar";
 import NewsSection from "./components/NewsSection/NewsSection";
 import ClickButton from "./components/ClickButton/ClickButton";
+import Bank from "./components/BankSection/Bank";
 
 function App() {
   const [total, setTotal] = useState(0);
@@ -24,6 +25,7 @@ function App() {
           <Navbar />
         </header>
         <NewsSection />
+        <Bank />
         <ClickButton />
       </TotalProvider>
     </div>

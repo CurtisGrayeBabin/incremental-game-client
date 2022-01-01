@@ -4,13 +4,15 @@
 }
 
 .button > button {
-  font-family: "Nunito", sans-serif;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  font-family: "Poppins", sans-serif;
   font-size: 2rem;
-  padding: 2rem;
-  border-radius: 50%;
-  color: green;
-  background-color: #bcf5be;
-  border-color: green;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
+  font-weight: bold;
+  color: var(--green-color);
+  background-color: var(--green-bg-color);
+  border-width: 0.25rem;
+  border-radius: 4rem;
+  border-color: var(--green-color);
+  border-style: solid;
 }
