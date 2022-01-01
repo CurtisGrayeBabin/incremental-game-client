@@ -2,6 +2,7 @@ import "./Navbar.css";
 import { IconContext } from "react-icons";
 import { FiSettings, FiArrowUpCircle } from "react-icons/fi";
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
+import { default as logo } from "../../Assets/BlankCaliforniaOutline.svg";
 
 const Navbar = (props) => {
   return (
@@ -34,6 +35,9 @@ const Navbar = (props) => {
           </button>
         </div>
       </nav>
+      <div className="california">
+        <img src={logo} alt={"Outline of California"} />
+      </div>
     </>
   );
 };
