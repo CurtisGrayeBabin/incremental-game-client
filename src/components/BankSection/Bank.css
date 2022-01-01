@@ -1,0 +1,18 @@
+.bank-container {
+  margin: 2rem auto;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+}
+
+.bank-container > h3 {
+  font-size: 2.5rem;
+  width: 50%;
+  text-align: right;
+}
+
+.amount {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--green-color);
+  margin-left: 1rem;
+}

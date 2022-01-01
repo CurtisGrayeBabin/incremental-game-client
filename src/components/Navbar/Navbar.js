@@ -3,12 +3,6 @@ import { IconContext } from "react-icons";
 import { FiSettings, FiArrowUpCircle } from "react-icons/fi";
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
 
-// const totalObject = useContext(TotalContext);
-// import { useContext } from "react";
-// import TotalContext from "../../totalContext";
-// import { currencyFormatter } from "../../businessLogic";
-// <div className="total">{currencyFormatter.format(totalObject.total)}</div>
-
 const Navbar = (props) => {
   return (
     <>
