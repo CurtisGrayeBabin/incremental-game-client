@@ -14,6 +14,13 @@
   height: 100%;
 }
 
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .buttons {
+    margin: 1rem auto;
+  }
+}
+
 .buttons button {
   cursor: pointer;
   margin: 0.75rem;
@@ -28,6 +35,15 @@
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .buttons button {
+    padding: 0.25rem 0.25rem;
+    margin: 0.5rem;
+    font-size: 1rem;
+  }
+}
+
 .california {
   width: 20rem;
   position: fixed;
@@ -36,20 +52,42 @@
   z-index: -1;
 }
 
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .california {
+    width: 14rem;
+    left: 0.25rem;
+  }
+}
+
 .logo-container {
   position: relative;
   left: 2rem;
 }
 
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .logo-container {
+    left: 1rem;
+  }
+}
+
 .logo {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-size: 4rem;
   font-weight: bold;
   color: var(--green-color);
 }
 
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .logo {
+    font-size: 3rem;
+  }
+}
+
 .created-by {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-size: 0.6rem;
   font-weight: normal;
   text-align: right;

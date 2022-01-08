@@ -14,6 +14,12 @@
   --green-bg-color: #d1ffc1;
 }
 
+@media (orientation: portrait) {
+  :root {
+    overflow: hidden;
+  }
+}
+
 .react-icons {
   vertical-align: middle;
   padding-bottom: 0.2rem;

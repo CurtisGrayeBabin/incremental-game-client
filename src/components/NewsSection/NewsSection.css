@@ -27,3 +27,23 @@
   font-size: 1.25rem;
   margin-top: 0.5rem;
 }
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .news {
+    margin: 0.5rem auto 0 auto;
+    width: 75%;
+  }
+
+  .news > h2 {
+    font-size: 1.2rem;
+  }
+
+  .news > i {
+    font-size: 1rem;
+  }
+
+  .result {
+    font-size: 0.85rem;
+  }
+}
