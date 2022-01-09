@@ -16,3 +16,18 @@
   color: var(--green-color);
   margin-left: 1rem;
 }
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .bank-container {
+    margin: 1rem auto;
+  }
+
+  .bank-container > h3 {
+    font-size: 2rem;
+  }
+
+  .amount {
+    font-size: 2rem;
+  }
+}

@@ -4,7 +4,7 @@
   text-align: center;
   width: fit-content;
   padding: 1rem;
-  margin: 1rem auto;
+  margin: 2rem auto 1rem auto;
   border-weight: 2rem;
   border-style: solid;
   border-radius: 2rem;
@@ -26,4 +26,45 @@
   font-weight: bold;
   font-size: 1.25rem;
   margin-top: 0.5rem;
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .news {
+    margin: 3rem auto 0 auto;
+    width: 75%;
+  }
+
+  .news > h2 {
+    font-size: 1.2rem;
+  }
+
+  .news > i {
+    font-size: 1rem;
+    line-height: normal;
+  }
+
+  .result {
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .news {
+    margin: 2% auto 0 auto;
+    width: 75%;
+  }
+
+  .news > h2 {
+    font-size: 2rem;
+  }
+
+  .news > i {
+    font-size: 1.75rem;
+  }
+
+  .result {
+    font-size: 1.75rem;
+  }
 }
