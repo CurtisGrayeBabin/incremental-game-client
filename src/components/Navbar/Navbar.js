@@ -10,7 +10,12 @@ const Navbar = (props) => {
       <nav className="nav">
         <div className="logo-container">
           <h1 className="logo">CA Clicker</h1>
-          <h6 className="created-by">Created by Curtis Babin</h6>
+          <h6 className="created-by">
+            Created by{" "}
+            <a href="https://www.curtisbabin.com" target="_">
+              Curtis Babin
+            </a>
+          </h6>
         </div>
 
         {/* menus */}
