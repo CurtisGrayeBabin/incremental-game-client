@@ -1,6 +1,6 @@
+import "./ClickButton.css";
 import { useContext } from "react";
 import TotalContext from "../../totalContext";
-import "./ClickButton.css";
 import { currencyFormatter } from "../../businessLogic";
 
 const ClickButton = (props) => {
