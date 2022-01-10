@@ -9,13 +9,13 @@ const ClickButton = (props) => {
 
   // increment the total
   const clickEvent = (e) => {
-    totalObject.setTotal(totalObject.total + totalObject.earnRate);
+    totalObject.setBank(totalObject.bank + totalObject.earnClickRate);
   };
 
   return (
     <div className="button">
       <button onClick={clickEvent}>
-        +{currencyFormatter.format(totalObject.earnRate)}
+        +{currencyFormatter.format(totalObject.earnClickRate)}
       </button>
     </div>
   );

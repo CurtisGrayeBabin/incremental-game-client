@@ -4,3 +4,5 @@ export const currencyFormatter = new Intl.NumberFormat("en-us", {
   style: "currency",
   currency: "USD",
 });
+
+export const scratcherWinProbability = 0.45;
