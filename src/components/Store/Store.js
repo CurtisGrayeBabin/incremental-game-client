@@ -1,5 +1,5 @@
 import "./Store.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import TotalContext from "../../totalContext";
 import { VscChromeClose } from "react-icons/vsc";
 import { scratcherWinProbability } from "../../businessLogic";
@@ -25,20 +25,20 @@ const Store = (props) => {
     props.setStoreShowing(!props.storeShowing);
   };
 
+  useEffect(() => {
+    const timerID = setTimeout(function () {
+      setResult(false);
+      setResultStatus("neutral");
+      setResultMessage("");
+    }, 3000);
+    return () => clearTimeout(timerID);
+  }, [showResult]);
+
   // red or green text that displays at the bottom of the store when the player wins or loses money
   const displayBuyResult = (status, message) => {
-    //setResult(false);
-    //clearInterval(timeoutID);
-
     setResult(true);
     setResultStatus(status);
     setResultMessage(message);
-
-    setInterval(function () {
-      setResult(false);
-      setResultStatus("neutral");
-      setResultStatus("");
-    }, 3000);
   };
 
   const handleBuy = (e) => {
