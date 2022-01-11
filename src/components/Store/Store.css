@@ -1,0 +1,89 @@
+.store {
+  z-index: 1;
+  background: white;
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border-style: solid;
+  border-radius: 2rem;
+  border-width: 0.25rem;
+  border-color: var(--green-color);
+  text-align: center;
+}
+
+.store p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.result-good {
+  color: var(--green-color);
+}
+
+.result-bad {
+  color: red;
+}
+
+.store label {
+  margin: 0 1rem;
+  font-size: 1.25rem;
+}
+
+.money {
+  color: var(--green-color);
+}
+
+.store > form {
+  margin: 1rem 0;
+}
+
+.store > form > select {
+  margin: 1rem 0;
+}
+
+.closeButton {
+  width: fit-content;
+  position: absolute;
+  right: 0.375rem;
+  top: 0.25rem;
+}
+
+.closeButton > button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  color: var(--green-color);
+}
+
+.storeTitle {
+  font-size: 2rem;
+}
+
+.buyButton {
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding: 0.125rem 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-style: solid;
+  border-radius: 2rem;
+  border-width: 0.25rem;
+  border-color: var(--green-color);
+  background: none;
+  color: var(--green-color);
+  background-color: var(--green-bg-color);
+}
+
+.selectList {
+  -webkit-appearance: none;
+  font-size: 1rem;
+  width: 90%;
+  text-align: center;
+  text-align-last: center;
+  -moz-text-align-last: center;
+}
