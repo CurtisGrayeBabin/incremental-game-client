@@ -1,5 +1,5 @@
 .store {
-  z-index: 1;
+  z-index: 2;
   background: white;
   position: absolute;
   height: fit-content;
@@ -8,7 +8,7 @@
   right: 0;
   margin: 0 auto;
   border-style: solid;
-  border-radius: 2rem;
+  border-radius: 2.5rem;
   border-width: 0.25rem;
   border-color: var(--green-color);
   text-align: center;
@@ -20,17 +20,22 @@
   font-weight: normal;
 }
 
+.showing {
+  height: 2.5rem;
+  transition: 0.2s;
+}
+
+.hidden {
+  height: 0rem;
+  transition: 0.2s;
+}
+
 .result-good {
   color: var(--green-color);
 }
 
 .result-bad {
   color: red;
-}
-
-.store label {
-  margin: 0 1rem;
-  font-size: 1.25rem;
 }
 
 .money {
@@ -64,6 +69,16 @@
   font-size: 2rem;
 }
 
+.youHave {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+
+.store label {
+  margin: 0 1rem;
+  font-size: 1.25rem;
+}
+
 .buyButton {
   -webkit-appearance: none;
   cursor: pointer;
@@ -79,6 +94,23 @@
   background-color: var(--green-bg-color);
 }
 
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .storeTitle {
+    font-size: 1.75rem;
+  }
+  .youHave {
+    font-size: 1.15rem;
+  }
+  .store label {
+    margin: 0 0.75rem;
+    font-size: 1rem;
+  }
+  .buyButton {
+    font-size: 1.25rem;
+  }
+}
+
 .selectList {
   -webkit-appearance: none;
   font-size: 1rem;
@@ -86,4 +118,5 @@
   text-align: center;
   text-align-last: center;
   -moz-text-align-last: center;
+  border-color: var(--green-color);
 }

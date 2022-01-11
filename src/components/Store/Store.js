@@ -6,9 +6,15 @@ import { scratcherWinProbability } from "../../businessLogic";
 
 // simple component that displays at the bottom of the store window when a player buys something
 const Result = (props) => {
-  const classForResult =
-    props.resultStatus === "bad" ? "result-bad" : "result-good";
-  return <p className={classForResult}>{props.resultMessage}</p>;
+  return (
+    <div className={props.showResult ? "showing" : "hidden"}>
+      <p
+        className={props.resultStatus === "bad" ? "result-bad" : "result-good"}
+      >
+        {props.resultMessage}
+      </p>
+    </div>
+  );
 };
 
 const Store = (props) => {
@@ -18,13 +24,12 @@ const Store = (props) => {
   const [resultStatus, setResultStatus] = useState("neutral");
   const [resultMessage, setResultMessage] = useState("");
 
-  //var timeoutID;
-
   // increment the total
   const closeStore = (e) => {
     props.setStoreShowing(!props.storeShowing);
   };
 
+  // close the result window
   useEffect(() => {
     const timerID = setTimeout(function () {
       setResult(false);
@@ -37,8 +42,8 @@ const Store = (props) => {
   // red or green text that displays at the bottom of the store when the player wins or loses money
   const displayBuyResult = (status, message) => {
     setResult(true);
-    setResultStatus(status);
     setResultMessage(message);
+    setResultStatus(status);
   };
 
   const handleBuy = (e) => {
@@ -69,7 +74,7 @@ const Store = (props) => {
         </button>
       </div>
       <h1 className="storeTitle">Store</h1>
-      <h2>
+      <h2 className="youHave">
         You have <span className="money">{totalObject.formattedTotal}</span> to
         spend
       </h2>
@@ -82,11 +87,12 @@ const Store = (props) => {
         <br />
         <input type="submit" value="Buy" className="buyButton" />
       </form>
-      {showResult ? (
-        <Result resultStatus={resultStatus} resultMessage={resultMessage} />
-      ) : (
-        ""
-      )}
+
+      <Result
+        showResult={showResult}
+        resultStatus={resultStatus}
+        resultMessage={resultMessage}
+      />
     </div>
   );
 };
