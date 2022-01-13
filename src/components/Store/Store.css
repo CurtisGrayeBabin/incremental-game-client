@@ -22,12 +22,12 @@
 
 .showing {
   height: 2.5rem;
-  transition: 0.2s;
+  transition: 0.1s;
 }
 
 .hidden {
   height: 0rem;
-  transition: 0.2s;
+  transition: 0.1s;
 }
 
 .result-good {

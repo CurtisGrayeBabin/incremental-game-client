@@ -2,7 +2,7 @@ import "./Store.css";
 import { useContext, useState, useEffect } from "react";
 import TotalContext from "../../totalContext";
 import { VscChromeClose } from "react-icons/vsc";
-import { scratcherWinProbability } from "../../businessLogic";
+import { handleScratcherBuy } from "../../businessLogic";
 
 // simple component that displays at the bottom of the store window when a player buys something
 const Result = (props) => {
@@ -24,7 +24,6 @@ const Store = (props) => {
   const [resultStatus, setResultStatus] = useState("neutral");
   const [resultMessage, setResultMessage] = useState("");
 
-  // increment the total
   const closeStore = (e) => {
     props.setStoreShowing(!props.storeShowing);
   };
@@ -49,21 +48,8 @@ const Store = (props) => {
   const handleBuy = (e) => {
     e.preventDefault();
 
-    // need to have at least $1.00 to buy
-    if (totalObject.bank >= 1) {
-      totalObject.setBank((totalObject.bank -= 1));
-
-      // check to see if the scracher won the player any money
-      const randomValue = Math.random();
-      if (randomValue < scratcherWinProbability) {
-        totalObject.setBank((totalObject.bank += 2));
-        displayBuyResult("good", "Your scratcher won you $2!");
-      } else {
-        displayBuyResult("bad", "Oof, your scratcher wasn't a winner :(");
-      }
-    } else {
-      displayBuyResult("bad", "You don't have enough money to buy that!");
-    }
+    // when the player buys a scratcher
+    handleScratcherBuy(totalObject, displayBuyResult);
   };
 
   return (
