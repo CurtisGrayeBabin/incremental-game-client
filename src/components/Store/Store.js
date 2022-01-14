@@ -2,9 +2,10 @@ import "./Store.css";
 import { useContext, useState, useEffect } from "react";
 import TotalContext from "../../totalContext";
 import { VscChromeClose } from "react-icons/vsc";
-import { handleScratcherBuy } from "../../businessLogic";
+import inventoryItems from "../../purchaseLogic/storeLogic";
+import { currencyFormatter } from "../../businessLogic";
 
-// simple component that displays at the bottom of the store window when a player buys something
+// buy result component that displays at the bottom of the store window
 const Result = (props) => {
   return (
     <div className={props.showResult ? "showing" : "hidden"}>
@@ -23,6 +24,8 @@ const Store = (props) => {
   const [showResult, setResult] = useState(false);
   const [resultStatus, setResultStatus] = useState("neutral");
   const [resultMessage, setResultMessage] = useState("");
+  // store state of currently selected option from inventory
+  const [selectKey, setSelectKey] = useState(0);
 
   const closeStore = (e) => {
     props.setStoreShowing(!props.storeShowing);
@@ -39,17 +42,23 @@ const Store = (props) => {
   }, [showResult]);
 
   // red or green text that displays at the bottom of the store when the player wins or loses money
-  const displayBuyResult = (status, message) => {
+  const displayBuyResult = (status, message, amount) => {
     setResult(true);
-    setResultMessage(message);
+    setResultMessage(`${message}${amount}`);
     setResultStatus(status);
   };
 
   const handleBuy = (e) => {
     e.preventDefault();
 
-    // when the player buys a scratcher
-    handleScratcherBuy(totalObject, displayBuyResult);
+    // when the player buys anything:
+    // access the selected item object's buy function and pass it the necessary values
+    inventoryItems[selectKey].function(totalObject, displayBuyResult);
+  };
+
+  // handle item selection
+  const handleOptionChange = (e) => {
+    setSelectKey(e.target.key);
   };
 
   return (
@@ -67,8 +76,20 @@ const Store = (props) => {
       <form onSubmit={handleBuy}>
         <label htmlFor="inventory">Select an item to buy from inventory:</label>
         <br />
-        <select name="inventory" id="inventory" className="selectList">
-          <option value="scratcher">($1) Scratcher</option>
+        {/* iterates over all inventory items and adds them as select options to the store menu */}
+        <select
+          name="inventory"
+          id="inventory"
+          className="selectList"
+          onChange={handleOptionChange}
+        >
+          {inventoryItems.map((item, index) => {
+            return (
+              <option key={index} value={item.name}>
+                {`${currencyFormatter.format(item.price)} ${item.name}`}
+              </option>
+            );
+          })}
         </select>
         <br />
         <input type="submit" value="Buy" className="buyButton" />
