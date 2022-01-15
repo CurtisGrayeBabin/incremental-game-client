@@ -44,7 +44,7 @@ const Store = (props) => {
   // red or green text that displays at the bottom of the store when the player wins or loses money
   const displayBuyResult = (status, message, amount) => {
     setResult(true);
-    setResultMessage(`${message}${amount}`);
+    setResultMessage(`${message}${amount ? amount : ""}`);
     setResultStatus(status);
   };
 
@@ -58,7 +58,7 @@ const Store = (props) => {
 
   // handle item selection
   const handleOptionChange = (e) => {
-    setSelectKey(e.target.key);
+    setSelectKey(e.target.value);
   };
 
   return (
@@ -85,7 +85,7 @@ const Store = (props) => {
         >
           {inventoryItems.map((item, index) => {
             return (
-              <option key={index} value={item.name}>
+              <option key={index} value={index}>
                 {`${currencyFormatter.format(item.price)} ${item.name}`}
               </option>
             );

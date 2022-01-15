@@ -1,4 +1,4 @@
-export const scratcher_good = [
+export const scratcherGood = [
   "Ayy, you won some scratch!",
   "Nice! You won some money!",
   "Oh, yeah, you like that prize money, huh?",
@@ -17,7 +17,7 @@ export const scratcher_good = [
   "Keep the good times rollin'!",
 ];
 
-export const scratcher_bad = [
+export const scratcherBad = [
   "Oh no! You lost!",
   "Can't all be winners!",
   "Better luck next time!",
@@ -29,4 +29,20 @@ export const scratcher_bad = [
   "Sorry, but that one... LOST!",
   "Hey, the odds can't always be in your favor",
   "Could be worse, am I right?",
+];
+
+export const friesGood = [
+  "You fed a nice seagull",
+  "Mmm, fries good",
+  "Those were salty",
+  "Hot & fresh",
+  "You like fries, huh?",
+  "Can't go wrong with that purchase",
+  "Frozen, fresh, whatevs, it's all good",
+  "Fries be good",
+  "Crispy af",
+  "Those were soggy, but it's all good",
+  "Curly fries, am I right?",
+  "Cajun fries are the best",
+  "Those were oily",
 ];
