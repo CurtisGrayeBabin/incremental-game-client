@@ -2,13 +2,20 @@ import "./Store.css";
 import { useContext, useState, useEffect } from "react";
 import TotalContext from "../../totalContext";
 import { VscChromeClose } from "react-icons/vsc";
-import { scratcherWinProbability } from "../../businessLogic";
+import inventoryItems from "../../purchaseLogic/storeLogic";
+import { currencyFormatter } from "../../businessLogic";
 
-// simple component that displays at the bottom of the store window when a player buys something
+// buy result component that displays at the bottom of the store window
 const Result = (props) => {
-  const classForResult =
-    props.resultStatus === "bad" ? "result-bad" : "result-good";
-  return <p className={classForResult}>{props.resultMessage}</p>;
+  return (
+    <div className={props.showResult ? "showing" : "hidden"}>
+      <p
+        className={props.resultStatus === "bad" ? "result-bad" : "result-good"}
+      >
+        {props.resultMessage}
+      </p>
+    </div>
+  );
 };
 
 const Store = (props) => {
@@ -17,14 +24,14 @@ const Store = (props) => {
   const [showResult, setResult] = useState(false);
   const [resultStatus, setResultStatus] = useState("neutral");
   const [resultMessage, setResultMessage] = useState("");
+  // store state of currently selected option from inventory
+  const [selectKey, setSelectKey] = useState(0);
 
-  //var timeoutID;
-
-  // increment the total
   const closeStore = (e) => {
     props.setStoreShowing(!props.storeShowing);
   };
 
+  // close the result window
   useEffect(() => {
     const timerID = setTimeout(function () {
       setResult(false);
@@ -35,30 +42,23 @@ const Store = (props) => {
   }, [showResult]);
 
   // red or green text that displays at the bottom of the store when the player wins or loses money
-  const displayBuyResult = (status, message) => {
+  const displayBuyResult = (status, message, amount) => {
     setResult(true);
+    setResultMessage(`${message}${amount ? amount : ""}`);
     setResultStatus(status);
-    setResultMessage(message);
   };
 
   const handleBuy = (e) => {
     e.preventDefault();
 
-    // need to have at least $1.00 to buy
-    if (totalObject.bank >= 1) {
-      totalObject.setBank((totalObject.bank -= 1));
+    // when the player buys anything:
+    // access the selected item object's buy function and pass it the necessary values
+    inventoryItems[selectKey].function(totalObject, displayBuyResult);
+  };
 
-      // check to see if the scracher won the player any money
-      const randomValue = Math.random();
-      if (randomValue < scratcherWinProbability) {
-        totalObject.setBank((totalObject.bank += 2));
-        displayBuyResult("good", "Your scratcher won you $2!");
-      } else {
-        displayBuyResult("bad", "Oof, your scratcher wasn't a winner :(");
-      }
-    } else {
-      displayBuyResult("bad", "You don't have enough money to buy that!");
-    }
+  // handle item selection
+  const handleOptionChange = (e) => {
+    setSelectKey(e.target.value);
   };
 
   return (
@@ -69,24 +69,37 @@ const Store = (props) => {
         </button>
       </div>
       <h1 className="storeTitle">Store</h1>
-      <h2>
+      <h2 className="youHave">
         You have <span className="money">{totalObject.formattedTotal}</span> to
         spend
       </h2>
       <form onSubmit={handleBuy}>
         <label htmlFor="inventory">Select an item to buy from inventory:</label>
         <br />
-        <select name="inventory" id="inventory" className="selectList">
-          <option value="scratcher">($1) Scratcher</option>
+        {/* iterates over all inventory items and adds them as select options to the store menu */}
+        <select
+          name="inventory"
+          id="inventory"
+          className="selectList"
+          onChange={handleOptionChange}
+        >
+          {inventoryItems.map((item, index) => {
+            return (
+              <option key={index} value={index}>
+                {`${currencyFormatter.format(item.price)} ${item.name}`}
+              </option>
+            );
+          })}
         </select>
         <br />
         <input type="submit" value="Buy" className="buyButton" />
       </form>
-      {showResult ? (
-        <Result resultStatus={resultStatus} resultMessage={resultMessage} />
-      ) : (
-        ""
-      )}
+
+      <Result
+        showResult={showResult}
+        resultStatus={resultStatus}
+        resultMessage={resultMessage}
+      />
     </div>
   );
 };
