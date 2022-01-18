@@ -33,9 +33,9 @@ function App() {
         <header>
           <Navbar />
         </header>
-        <NewsSection />
         <Bank />
         <ClickButton />
+        <NewsSection />
       </TotalProvider>
     </div>
   );
