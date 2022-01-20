@@ -46,3 +46,14 @@ export const friesGood = [
   "Cajun fries are the best",
   "Those were oily",
 ];
+
+export const icedAmericanoGood = [
+  "That's the good stuff",
+  "Excellent choice",
+  "You are intelligent and wise",
+  "If only the crash never hit",
+  "WHOO-HOOOOOO",
+  "Me gusta",
+  "Beats tea, am I right?",
+  "Simple, elegant, exquisite",
+];

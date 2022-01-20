@@ -1,6 +1,12 @@
+/*
+This file contains an inventory of items
+and their individual functions that handle interacting with the store
+*/
+
 // feedbacks for each kind of inventory buy
 import { scratcherBad, scratcherGood } from "./feedbacks";
 import { friesGood } from "./feedbacks";
+import { icedAmericanoGood } from "./feedbacks";
 import { currencyFormatter } from "../businessLogic";
 
 // geralized format for setting grren or red buy result messages
@@ -27,6 +33,17 @@ const handleNotEnoughMoney = (displayBuyResult) => {
 // Prices of inventory
 const scratcherPrice = 1;
 const frenchFriesPrice = 2;
+const icedAmericanoPrice = 3.5;
+
+// ICED AMERICANO
+export const handleIcedAmericanoBuy = (totalObject, displayBuyResult) => {
+  if (totalObject.bank >= icedAmericanoPrice) {
+    totalObject.setBank((totalObject.bank -= icedAmericanoPrice));
+    setFeedback(displayBuyResult, "good", icedAmericanoGood);
+  } else {
+    handleNotEnoughMoney(displayBuyResult);
+  }
+};
 
 // FRENCH FRIES
 export const handleFrenchFriesBuy = (totalObject, displayBuyResult) => {
@@ -71,6 +88,11 @@ const inventoryItems = [
     name: "French Fries",
     price: frenchFriesPrice,
     function: handleFrenchFriesBuy,
+  },
+  {
+    name: "Iced Americano",
+    price: icedAmericanoPrice,
+    function: handleIcedAmericanoBuy,
   },
 ];
 
