@@ -57,3 +57,15 @@ export const icedAmericanoGood = [
   "Beats tea, am I right?",
   "Simple, elegant, exquisite",
 ];
+
+export const tacoGood = [
+  "Ah yes, a California diet staple",
+  "Don't forget the cilantro and onion",
+  "Corn tortilla or flour tortilla? Either way, yes.",
+  "It's always good",
+  "Ever had a bad taco? Didn't think so",
+  "Food truck? Sit-down? Either way... yes",
+  "Excellent choice",
+  '"Ew, it\'s too greasy!" - Nobody',
+  '"We should\'ve got something else" - Nobody',
+];

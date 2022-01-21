@@ -7,6 +7,7 @@ and their individual functions that handle interacting with the store
 import { scratcherBad, scratcherGood } from "./feedbacks";
 import { friesGood } from "./feedbacks";
 import { icedAmericanoGood } from "./feedbacks";
+import { tacoGood } from "./feedbacks";
 import { currencyFormatter } from "../businessLogic";
 
 // geralized format for setting grren or red buy result messages
@@ -34,6 +35,17 @@ const handleNotEnoughMoney = (displayBuyResult) => {
 const scratcherPrice = 1;
 const frenchFriesPrice = 2;
 const icedAmericanoPrice = 3.5;
+const tacoPrice = 3;
+
+// TACO
+export const handleTacoBuy = (totalObject, displayBuyResult) => {
+  if (totalObject.bank >= tacoPrice) {
+    totalObject.setBank((totalObject.bank -= tacoPrice));
+    setFeedback(displayBuyResult, "good", tacoGood);
+  } else {
+    handleNotEnoughMoney(displayBuyResult);
+  }
+};
 
 // ICED AMERICANO
 export const handleIcedAmericanoBuy = (totalObject, displayBuyResult) => {
@@ -93,6 +105,11 @@ const inventoryItems = [
     name: "Iced Americano",
     price: icedAmericanoPrice,
     function: handleIcedAmericanoBuy,
+  },
+  {
+    name: "Taco",
+    price: tacoPrice,
+    function: handleTacoBuy,
   },
 ];
 
