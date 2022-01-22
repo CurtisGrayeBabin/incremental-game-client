@@ -69,3 +69,15 @@ export const tacoGood = [
   '"Ew, it\'s too greasy!" - Nobody',
   '"We should\'ve got something else" - Nobody',
 ];
+
+export const dadShoesGood = [
+  "Oh... ok...",
+  "So bad they're good?",
+  "Wowzers",
+  "Someone (had) $$$",
+  "Add 'em to the collection",
+  "Yo, these are sick, yo",
+  "I'm jealous! Really!",
+  "Fashion, am I right?",
+  "Nice nice nice ok ok ok",
+];

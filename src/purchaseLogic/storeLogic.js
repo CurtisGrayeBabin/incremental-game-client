@@ -8,6 +8,7 @@ import { scratcherBad, scratcherGood } from "./feedbacks";
 import { friesGood } from "./feedbacks";
 import { icedAmericanoGood } from "./feedbacks";
 import { tacoGood } from "./feedbacks";
+import { dadShoesGood } from "./feedbacks";
 import { currencyFormatter } from "../businessLogic";
 
 // geralized format for setting grren or red buy result messages
@@ -36,6 +37,17 @@ const scratcherPrice = 1;
 const frenchFriesPrice = 2;
 const icedAmericanoPrice = 3.5;
 const tacoPrice = 3;
+const dadShoesPrice = 299.99;
+
+// OVERPRICED DAD SHOES
+export const handleDadShoesBuy = (totalObject, displayBuyResult) => {
+  if (totalObject.bank >= dadShoesPrice) {
+    totalObject.setBank((totalObject.bank -= dadShoesPrice));
+    setFeedback(displayBuyResult, "good", dadShoesGood);
+  } else {
+    handleNotEnoughMoney(displayBuyResult);
+  }
+};
 
 // TACO
 export const handleTacoBuy = (totalObject, displayBuyResult) => {
@@ -110,6 +122,11 @@ const inventoryItems = [
     name: "Taco",
     price: tacoPrice,
     function: handleTacoBuy,
+  },
+  {
+    name: "Overpriced dad shoes",
+    price: dadShoesPrice,
+    function: handleDadShoesBuy,
   },
 ];
 
