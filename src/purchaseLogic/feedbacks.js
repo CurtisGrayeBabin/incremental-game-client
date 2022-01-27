@@ -81,3 +81,14 @@ export const dadShoesGood = [
   "Fashion, am I right?",
   "Nice nice nice ok ok ok",
 ];
+
+export const selfieStickBad = [
+  "Why... just... why?",
+  "Don't forget the duck lips",
+  "Ok, Kylie Jenner",
+  "Can't say that was wise",
+  "Haha!",
+  "Why tho?",
+  "Weren't those popular several years ago?",
+  "Guess I couldn't stop you from doing that",
+];
