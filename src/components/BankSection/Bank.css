@@ -1,6 +1,7 @@
 .bank-container {
   margin: 2rem auto;
   display: flex;
+  width: fit-content;
 }
 
 .bank-container > h3 {
