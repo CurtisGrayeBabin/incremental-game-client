@@ -83,13 +83,15 @@ const Store = (props) => {
           className="selectList"
           onChange={handleOptionChange}
         >
-          {inventoryItems.map((item, index) => {
-            return (
-              <option key={index} value={index}>
-                {`${currencyFormatter.format(item.price)} ${item.name}`}
-              </option>
-            );
-          })}
+          {inventoryItems
+            .sort((item1, item2) => item1.price - item2.price)
+            .map((item, index) => {
+              return (
+                <option key={index} value={index}>
+                  {`${currencyFormatter.format(item.price)} ${item.name}`}
+                </option>
+              );
+            })}
         </select>
         <br />
         <input type="submit" value="Buy" className="buyButton" />

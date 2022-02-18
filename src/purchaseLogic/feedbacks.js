@@ -46,3 +46,49 @@ export const friesGood = [
   "Cajun fries are the best",
   "Those were oily",
 ];
+
+export const icedAmericanoGood = [
+  "That's the good stuff",
+  "Excellent choice",
+  "You are intelligent and wise",
+  "If only the crash never hit",
+  "WHOO-HOOOOOO",
+  "Me gusta",
+  "Beats tea, am I right?",
+  "Simple, elegant, exquisite",
+];
+
+export const tacoGood = [
+  "Ah yes, a California diet staple",
+  "Don't forget the cilantro and onion",
+  "Corn tortilla or flour tortilla? Either way, yes.",
+  "It's always good",
+  "Ever had a bad taco? Didn't think so",
+  "Food truck? Sit-down? Either way... yes",
+  "Excellent choice",
+  '"Ew, it\'s too greasy!" - Nobody',
+  '"We should\'ve got something else" - Nobody',
+];
+
+export const dadShoesGood = [
+  "Oh... ok...",
+  "So bad they're good?",
+  "Wowzers",
+  "Someone (had) $$$",
+  "Add 'em to the collection",
+  "Yo, these are sick, yo",
+  "I'm jealous! Really!",
+  "Fashion, am I right?",
+  "Nice nice nice ok ok ok",
+];
+
+export const selfieStickBad = [
+  "Why... just... why?",
+  "Don't forget the duck lips",
+  "Ok, Kylie Jenner",
+  "Can't say that was wise",
+  "Haha!",
+  "Why tho?",
+  "Weren't those popular several years ago?",
+  "Guess I couldn't stop you from doing that",
+];

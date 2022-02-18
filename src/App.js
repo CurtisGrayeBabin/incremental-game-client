@@ -9,7 +9,7 @@ import ClickButton from "./components/ClickButton/ClickButton";
 import Bank from "./components/BankSection/Bank";
 
 function App() {
-  const [bank, setBank] = useState(100);
+  const [bank, setBank] = useState(50000);
   const [earnClickRate, setEarnClickRate] = useState(0.01);
 
   const statsObject = {
